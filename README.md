@@ -4,15 +4,13 @@ Library helper to produce parallel execution
 - with well defined set of tasks
 - without explicitly using channel
 
+https://godoc.org/github.com/mh-cbon/go-async
+
 # Install
 
 ```sh
 glide get github.com/mh-cbon/go-async
 ```
-
-# Online documentation
-
-https://godoc.org/github.com/mh-cbon/go-async
 
 # Usage
 
