@@ -10,6 +10,10 @@ Library helper to produce parallel execution
 glide get github.com/mh-cbon/go-async
 ```
 
+# Online documentation
+
+https://godoc.org/github.com/mh-cbon/go-async
+
 # Usage
 
 #### async.Parallel
