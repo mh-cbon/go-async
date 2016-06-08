@@ -2,9 +2,9 @@ package async
 
 import (
 	"errors"
-	"fmt"
+	// "fmt"
 	"testing"
-	"time"
+	// "time"
 )
 
 func TestParallel(t *testing.T) {

@@ -41,15 +41,15 @@ func ParallelLimit(limit int, handlers []Task) ([]Result, error) {
 		go func(index int, t Task) {
 			in <- t
 			t(func(err error) {
-				if results[index].done == false {
-					out <- Result{Index: index, Err: err, done: true}
-					<-in
-				}
+				out <- Result{Index: index, Err: err, done: true}
+				<-in
 			})
 		}(index, t)
 	}
 	for res := range out {
-		results[res.Index] = res
+    if results[res.Index].done == false {
+  		results[res.Index] = res
+    }
 		if hasEnded(results) {
 			close(out)
 			close(in)
@@ -68,14 +68,14 @@ func Parallel(handlers []Task) []Result {
 	for index, t := range handlers {
 		go func(index int, t Task) {
 			t(func(err error) {
-				if results[index].done == false {
-					out <- Result{Index: index, Err: err, done: true}
-				}
+				out <- Result{Index: index, Err: err, done: true}
 			})
 		}(index, t)
 	}
 	for res := range out {
-		results[res.Index] = res
+    if results[res.Index].done == false {
+  		results[res.Index] = res
+    }
 		if hasEnded(results) {
 			close(out)
 		}
